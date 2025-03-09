@@ -60,6 +60,9 @@ cd build
 
 
 %changelog
+* Sun Mar 09 2025 Thomas Duckworth <tduck@filotimoproject.org> 2.1.1-3
+- add an epoch (tduck@filotimoproject.org)
+
 * Sun Mar 09 2025 Thomas Duckworth <tduck@filotimoproject.org>
 - add an epoch (tduck@filotimoproject.org)
 
