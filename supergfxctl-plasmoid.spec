@@ -1,6 +1,7 @@
 Name:           supergfxctl-plasmoid
 Version:        2.1.1
-Release:        2%{?dist}
+Release:        3%{?dist}
+Epoch:          1
 Summary:        KDE Plasma plasmoid for supergfxctl
 
 License:        MPL2
@@ -59,6 +60,9 @@ cd build
 
 
 %changelog
+* Sun Mar 09 2025 Thomas Duckworth <tduck@filotimoproject.org>
+- add an epoch (tduck@filotimoproject.org)
+
 * Sun Mar 09 2025 Thomas Duckworth <tduck@filotimoproject.org> 2.1.1-2
 - new package built with tito
 
