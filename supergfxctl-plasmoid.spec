@@ -59,3 +59,6 @@ cd build
 
 
 %changelog
+* Sun Mar 09 2025 Thomas Duckworth <tduck@filotimoproject.org> 2.1.1-2
+- new package built with tito
+
