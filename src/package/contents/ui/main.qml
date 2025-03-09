@@ -40,7 +40,7 @@ PlasmoidItem {
 
         value: isPlasmoidActive() ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     }
-    toolTipSubText: i18n("Graphics mode: %1, dGPU power: %2", plasmoid.mode.name, plasmoid.power.name)
+    toolTipSubText: i18n("Graphics mode: %1, Discrete GPU power: %2", plasmoid.mode.name, plasmoid.power.name)
     compactRepresentation: MouseArea {
         property bool wasExpanded
         onPressed: wasExpanded = mainWindow.expanded
@@ -76,7 +76,6 @@ PlasmoidItem {
     fullRepresentation: PlasmaExtras.Representation
     {
         id: dialog
-        anchors.fill: parent
         Layout.minimumWidth: Kirigami.Units.iconSizes.medium * 10
         Layout.minimumHeight: Kirigami.Units.gridUnit * 20
         header: PlasmaExtras.PlasmoidHeading {
@@ -89,7 +88,7 @@ PlasmoidItem {
                         source: plasmoid.power.iconName
                     }
                     PlasmaComponents.Label {
-                        text: i18n("dGPU power: %1", plasmoid.power.name)
+                        text: i18n("Discrete GPU power: %1", plasmoid.power.name)
                     }
                 }
                 PlasmaComponents.Label {
@@ -101,21 +100,20 @@ PlasmoidItem {
                 }
                 PlasmaComponents.Label {
                     visible: plasmoid.errorMsg.length > 0
-                    text: i18n("Run journalctl -b -u supergfxd for more information")
+                    text: i18n("Run journalctl -b -u supergfxd for more information.")
                     color: "red"
                     font.italic: true
                 }
                 RowLayout {
                     visible: plasmoid.isPending
                     PlasmaComponents.Label {
-                        text: i18n("%1 is required to switch to %2", plasmoid.pendingAction.name, plasmoid.pendingMode.name)
+                        text: i18n("%1 is required to switch to %2.", plasmoid.pendingAction.name, plasmoid.pendingMode.name)
                         id: infoLabel
                     }
                     PlasmaComponents.Button {
                         text: i18n("Revert to %1", plasmoid.mode.name)
                         onClicked: plasmoid.revert()
                         icon.name: "edit-undo"
-                        Layout.preferredHeight: infoLabel.implicitHeight
                     }
                 }
             }
@@ -126,6 +124,7 @@ PlasmoidItem {
 
             Layout.fillWidth: true
             Layout.fillHeight: true
+
             contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
 
             visible: !plasmoid.isDaemonFailing && !plasmoid.isDaemonOutdated
@@ -150,16 +149,10 @@ PlasmoidItem {
                         id: source
                         height: separatorLine.height + Kirigami.Units.smallSpacing
                         width: listView.width - Kirigami.Units.smallSpacing * 4
-                        KSvg.SvgItem {
+                        Kirigami.Separator {
                             id: separatorLine
-                            width: parent.width - 2 * Kirigami.Units.gridUnit
-                            height: lineSvg.elementSize("horizontal-line").height
+                            width: source.width
                             anchors.top: parent.top
-							svg: KSvg.Svg {
-								id: lineSvg
-								imagePath: "widgets/line"
-							}
-                            elementId: "horizontal-line"
                         }
                     }
                 }
@@ -271,7 +264,7 @@ PlasmoidItem {
 
             visible: plasmoid.isDaemonOutdated
 
-            text: i18n("supergfxd daemon is outdated")
+            text: i18n("supergfxd daemon is outdated.")
         }
 
         PlasmaExtras.PlaceholderMessage {
@@ -284,7 +277,7 @@ PlasmoidItem {
 
             visible: plasmoid.isDaemonFailing
 
-            text: i18n("Can't connect to daemon")
+            text: i18n("Can't connect to daemon.")
         }
     }
 }

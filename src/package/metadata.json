@@ -16,7 +16,7 @@
         "Icon": "supergfxctl-plasmoid-gpu-dedicated",
         "Id": "dev.jhyub.supergfxctl",
         "License": "MPL-2.0",
-        "Name": "SUPERGFX",
+        "Name": "Hybrid Graphics",
         "Version": "2.1.1",
         "Website": "https://gitlab.com/Jhyub/supergfxctl-plasmoid"
     },
